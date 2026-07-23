@@ -1,0 +1,20 @@
+[
+  {
+    "id": "dotnet/runtime/pr/12345",
+    "owner": "dotnet",
+    "repo": "runtime",
+    "kind": "PullRequest",
+    "branchName": null,
+    "pullRequestNumber": 12345,
+    "alias": null
+  },
+  {
+    "id": "dotnet/runtime/branch/main",
+    "owner": "dotnet",
+    "repo": "runtime",
+    "kind": "Branch",
+    "branchName": "main",
+    "pullRequestNumber": null,
+    "alias": "runtime main branch"
+  }
+]

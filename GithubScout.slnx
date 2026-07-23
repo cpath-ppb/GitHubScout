@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/GithubScout.Core/GithubScout.Core.csproj" />
+    <Project Path="src/GithubScout.Web/GithubScout.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/GithubScout.Tests/GithubScout.Tests.csproj" />
+  </Folder>
+</Solution>

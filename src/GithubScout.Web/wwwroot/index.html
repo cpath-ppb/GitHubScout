@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GithubScout Dashboard</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>🔭 GithubScout</h1>
+    <span id="last-refreshed">Loading...</span>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Watched Items</h2>
+        <button id="add-item-btn">+ Add item</button>
+      </div>
+      <table id="items-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>State</th>
+            <th>Checks</th>
+            <th>Review</th>
+            <th>Latest Commit</th>
+            <th>Checked</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>Activity Feed</h2>
+      <ul id="activity-feed"></ul>
+    </section>
+  </main>
+
+  <dialog id="add-item-dialog">
+    <form id="add-item-form">
+      <h3>Add watch item</h3>
+      <label>GitHub PR or branch URL
+        <input name="url" id="url-input" required placeholder="https://github.com/owner/repo/pull/123" />
+      </label>
+      <label>Alias (optional) <input name="alias" placeholder="A friendly name to show instead" /></label>
+      <details id="advanced-details">
+        <summary>Advanced: enter details manually instead</summary>
+        <label>Kind
+          <select name="kind" id="kind-select">
+            <option value="PullRequest">Pull Request</option>
+            <option value="Branch">Branch</option>
+          </select>
+        </label>
+        <label>Owner <input name="owner" placeholder="e.g. dotnet" /></label>
+        <label>Repo <input name="repo" placeholder="e.g. runtime" /></label>
+        <label id="pr-field">PR Number <input name="pullRequestNumber" type="number" /></label>
+        <label id="branch-field" style="display:none">Branch name <input name="branchName" /></label>
+      </details>
+      <div class="dialog-actions">
+        <button type="button" id="cancel-add">Cancel</button>
+        <button type="submit">Add</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

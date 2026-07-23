@@ -1,0 +1,16 @@
+services:
+  githubscout:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: githubscout
+    ports:
+      - "8080:8080"
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+      - GithubScout__PollIntervalSeconds=120
+    volumes:
+      # Create ./watchlist.json (see watchlist.sample.json) before starting so it
+      # persists on the host and can be hand-edited outside the container too.
+      - ./watchlist.json:/app/watchlist.json
+    restart: unless-stopped
