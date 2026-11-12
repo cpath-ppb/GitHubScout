@@ -62,6 +62,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<INotifier, ActivityLogNotifier>();
         services.AddSingleton<INotifier, WindowsToastNotifier>();
 
+        services.AddSingleton(new KeepAwakeDiagnostics(KeepAwakeDiagnostics.DefaultPath));
         services.AddSingleton<KeepAwakeServiceFactory>();
         services.AddSingleton<IKeepAwakeService>(sp =>
         {

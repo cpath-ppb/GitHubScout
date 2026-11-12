@@ -7,10 +7,12 @@ namespace GithubScout.Core.Services.KeepAwake;
 public sealed class KeepAwakeServiceFactory
 {
     private readonly ILoggerFactory _loggerFactory;
+    private readonly KeepAwakeDiagnostics _diagnostics;
 
-    public KeepAwakeServiceFactory(ILoggerFactory loggerFactory)
+    public KeepAwakeServiceFactory(ILoggerFactory loggerFactory, KeepAwakeDiagnostics diagnostics)
     {
         _loggerFactory = loggerFactory;
+        _diagnostics = diagnostics;
     }
 
     public IKeepAwakeService Create(bool enabled)
@@ -27,7 +29,7 @@ public sealed class KeepAwakeServiceFactory
 
         if (OperatingSystem.IsWindows())
         {
-            return new WindowsKeepAwakeService(_loggerFactory.CreateLogger<WindowsKeepAwakeService>());
+            return new WindowsKeepAwakeService(_loggerFactory.CreateLogger<WindowsKeepAwakeService>(), _diagnostics);
         }
 
         if (OperatingSystem.IsLinux())
